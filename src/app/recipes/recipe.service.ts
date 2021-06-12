@@ -1,13 +1,18 @@
+import { ThisReceiver } from "@angular/compiler";
 import { Injectable } from "@angular/core";
-import { Subject } from "rxjs";
+import { BehaviorSubject, Observable, Subject } from "rxjs";
 import { Ingredient } from "../shared/ingredient.model";
 import { ShoppingService } from "../shopping-list/shopping.service";
 
 import { Recipe } from "./recipe.model";
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class RecipeService {
   recipesChanged = new Subject<Recipe[]>()
+  // recipesChangedSubject: BehaviorSubject<Recipe[]>
+  // recipesChanged: Observable<any>
 
   // private recipes: Recipe[] = [
   //   new Recipe(
@@ -32,13 +37,15 @@ export class RecipeService {
 
   private recipes: Recipe[] = [];
 
-  constructor(private shoppingService: ShoppingService){}
+  constructor(private shoppingService: ShoppingService){
+    // this.recipesChanged = new Subject<Recipe[]>()
+    // this.recipesChanged = this.recipesChangedSubject.asObservable()
+  }
 
   setRecipes(recipes: Recipe[]) {
-    debugger
-    this.recipes = recipes;
+    this.recipes = recipes
     this.recipesChanged.next(this.recipes.slice())
-    console.log(this.recipes)
+    // console.log(this.recipes)
   }
 
   getRecipes() {
