@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth/auth.service';
+import { LoggingService } from './logging.service';
 import { RecipeService } from './recipes/recipe.service'
 
 @Component({
@@ -11,9 +12,10 @@ import { RecipeService } from './recipes/recipe.service'
 export class AppComponent implements OnInit{
   title = 'Angular-Course-Project'
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private loggingService: LoggingService) {}
 
   ngOnInit() {
     this.authService.autoLogin();
+    this.loggingService.printLog('Hello from AppComponent ngOnInit');
   }
 }
