@@ -10,8 +10,6 @@ import { Recipe } from "./recipe.model";
 })
 export class RecipeService {
   recipesChanged = new Subject<Recipe[]>()
-  // recipesChangedSubject: BehaviorSubject<Recipe[]>
-  // recipesChanged: Observable<any>
 
   // private recipes: Recipe[] = [
   //   new Recipe(
@@ -34,12 +32,9 @@ export class RecipeService {
   //     ])
   // ];
 
-  private recipes: Recipe[]
+  private recipes: Recipe[] = []
 
-  constructor(private shoppingService: ShoppingService){
-    // this.recipesChanged = new Subject<Recipe[]>()
-    // this.recipesChanged = this.recipesChangedSubject.asObservable()
-  }
+  constructor(private shoppingService: ShoppingService){}
 
   setRecipes(recipes: Recipe[]) {
     debugger
