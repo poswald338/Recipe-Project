@@ -3,7 +3,7 @@ import { Subject } from "rxjs";
 
 import { Ingredient } from "../shared/ingredient.model"
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class ShoppingService {
   ingredientsChanged = new Subject<Ingredient[]>();
   startedEditing = new Subject<number>();

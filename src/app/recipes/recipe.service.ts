@@ -1,6 +1,5 @@
-import { ThisReceiver } from "@angular/compiler";
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, Observable, Subject } from "rxjs";
+import { Subject } from "rxjs";
 import { Ingredient } from "../shared/ingredient.model";
 import { ShoppingService } from "../shopping-list/shopping.service";
 
@@ -35,7 +34,7 @@ export class RecipeService {
   //     ])
   // ];
 
-  private recipes: Recipe[] = [];
+  private recipes: Recipe[]
 
   constructor(private shoppingService: ShoppingService){
     // this.recipesChanged = new Subject<Recipe[]>()
@@ -43,6 +42,7 @@ export class RecipeService {
   }
 
   setRecipes(recipes: Recipe[]) {
+    debugger
     this.recipes = recipes
     this.recipesChanged.next(this.recipes.slice())
     // console.log(this.recipes)
