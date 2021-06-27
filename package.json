@@ -7,7 +7,11 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "dev:ssr": "ng run Angular-Course-Project:serve-ssr",
+    "serve:ssr": "node dist/Angular-Course-Project/server/main.js",
+    "build:ssr": "ng build --prod && ng run Angular-Course-Project:server:production",
+    "prerender": "ng run Angular-Course-Project:prerender"
   },
   "private": true,
   "dependencies": {
@@ -18,11 +22,15 @@
     "@angular/forms": "~11.2.11",
     "@angular/platform-browser": "~11.2.11",
     "@angular/platform-browser-dynamic": "~11.2.11",
+    "@angular/platform-server": "~11.2.11",
     "@angular/router": "~11.2.11",
     "@ngrx/effects": "^12.1.0",
     "@ngrx/router-store": "^12.1.0",
     "@ngrx/store": "^12.1.0",
+    "@nguniversal/express-engine": "^11.2.1",
+    "@nguniversal/module-map-ngfactory-loader": "^8.2.6",
     "bootstrap": "^3.4.1",
+    "express": "^4.15.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
