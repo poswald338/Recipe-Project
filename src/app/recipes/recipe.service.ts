@@ -37,7 +37,6 @@ export class RecipeService {
   constructor(private shoppingService: ShoppingService){}
 
   setRecipes(recipes: Recipe[]) {
-    debugger
     this.recipes = recipes
     this.recipesChanged.next(this.recipes.slice())
     // console.log(this.recipes)
