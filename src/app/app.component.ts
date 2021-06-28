@@ -16,7 +16,8 @@ export class AppComponent implements OnInit{
   constructor(
     private store: Store<fromApp.AppState>,
     private loggingService: LoggingService,
-    @Inject(PLATFORM_ID) private platformId ) {}
+    @Inject(PLATFORM_ID) private platformId
+    ) {}
 
   ngOnInit() {
     if(isPlatformBrowser(this.platformId)) {
