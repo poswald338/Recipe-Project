@@ -20,9 +20,11 @@ export class AppComponent implements OnInit{
     ) {}
 
   ngOnInit() {
-    if(isPlatformBrowser(this.platformId)) {
-      this.store.dispatch(new AuthActions.AutoLogin());
-    }
+    // if(isPlatformBrowser(this.platformId)) {
+    //   this.store.dispatch(new AuthActions.AutoLogin());
+    // }
+    debugger
+    this.store.dispatch(new AuthActions.AutoLogin());
     this.loggingService.printLog('Hello from AppComponent ngOnInit');
   }
 }
