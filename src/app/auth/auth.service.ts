@@ -35,6 +35,7 @@ export class AuthService {
     .pipe(
       catchError(this.handleError),
       tap(resData => {
+        console.log(resData)
         this.handleAuthentication(
           resData.email,
           resData.localId,
@@ -44,7 +45,7 @@ export class AuthService {
     )
   }
 
-  login(email: string, password: string) {
+  login(email: string, password: string) {debugger
     return this.http.post<AuthResponseData>(
       'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' + environment.firebaseAPIKey,
       {
@@ -55,6 +56,7 @@ export class AuthService {
     ).pipe(
       catchError(this.handleError),
       tap(resData => {
+        console.log(resData)
         this.handleAuthentication(
           resData.email,
           resData.localId,
